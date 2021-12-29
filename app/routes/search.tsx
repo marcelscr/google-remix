@@ -1,4 +1,4 @@
-import { redirect } from 'remix'
+import { redirect, useLoaderData } from 'remix'
 import type { ActionFunction, LoaderFunction, MetaFunction } from 'remix'
 
 import Header from '~/components/searchHeader'
@@ -9,8 +9,15 @@ export const meta: MetaFunction = () => {
   }
 }
 
-export const loader: LoaderFunction = async () => {
-  return {}
+type SearchData = {
+  query: string
+}
+
+export const loader: LoaderFunction = async ({ request }) => {
+  const url = new URL(request.url)
+  const query = url.searchParams.get('query')
+
+  return { query }
 }
 
 export const action: ActionFunction = async ({ request }) => {
@@ -23,9 +30,13 @@ export const action: ActionFunction = async ({ request }) => {
 }
 
 export default function Search() {
+  const data = useLoaderData<SearchData>()
+
+  console.log(data)
+
   return (
     <div>
-      <Header />
+      <Header defaultSearchValue={data.query} />
     </div>
   )
 }

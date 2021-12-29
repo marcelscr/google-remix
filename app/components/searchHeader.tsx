@@ -5,7 +5,11 @@ import { useRef } from 'react'
 import Avatar from './avatar'
 import HeaderOptions from './headerOptions'
 
-const Header = () => {
+type Props = {
+  defaultSearchValue?: string
+}
+
+const Header = ({ defaultSearchValue }: Props) => {
   const inputRef = useRef<HTMLInputElement>(null)
 
   return (
@@ -24,6 +28,7 @@ const Header = () => {
           action="/search"
           className="flex flex-grow px-6 py-3 ml-10 mr-5 border border-gray-200 rounded-full shadow-lg max-w-3xl items-center">
           <input
+            defaultValue={defaultSearchValue}
             ref={inputRef}
             className="flex-grow w-full focus:outline-none"
             type="text"
