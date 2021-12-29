@@ -1,6 +1,7 @@
 import cn from 'classnames'
 import { GlobeIcon } from '@heroicons/react/solid'
-import { Link } from 'remix'
+
+import UnderlineLink from './underlineLink'
 
 type Props = {
   className?: string
@@ -20,26 +21,14 @@ const Footer = ({ className }: Props) => {
           2007
         </div>
         <div className="flex justify-center space-x-8 whitespace-nowrap md:justify-self-start">
-          <Link to="/" className="hover:underline">
-            Advertising
-          </Link>
-          <Link to="/" className="hover:underline">
-            Business
-          </Link>
-          <Link to="/" className="hover:underline">
-            How Search works
-          </Link>
+          <UnderlineLink to="/">Advertising</UnderlineLink>
+          <UnderlineLink to="/">Business</UnderlineLink>
+          <UnderlineLink to="/">How Search works</UnderlineLink>
         </div>
         <div className="flex justify-center space-x-8 md:ml-auto">
-          <Link to="/" className="hover:underline">
-            Privacy
-          </Link>
-          <Link to="/" className="hover:underline">
-            Terms
-          </Link>
-          <Link to="/" className="hover:underline">
-            Settings
-          </Link>
+          <UnderlineLink to="/">Privacy</UnderlineLink>
+          <UnderlineLink to="/">Terms</UnderlineLink>
+          <UnderlineLink to="/">Settings</UnderlineLink>
         </div>
       </div>
     </footer>

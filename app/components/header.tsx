@@ -1,7 +1,7 @@
 import cn from 'classnames'
-import { Link } from 'remix'
 import { ViewGridIcon } from '@heroicons/react/solid'
 
+import UnderlineLink from './underlineLink'
 import Avatar from './avatar'
 
 type Props = {
@@ -16,12 +16,8 @@ const Header = ({ className }: Props) => {
         className
       )}>
       <div className="flex space-x-4 items-center">
-        <Link to="/" className="hover:underline">
-          Gmail
-        </Link>
-        <Link to="/" className="hover:underline">
-          Images
-        </Link>
+        <UnderlineLink to="/">Gmail</UnderlineLink>
+        <UnderlineLink to="/">Images</UnderlineLink>
         <ViewGridIcon className="w-10 h-10 p-2 rounded-full hover:bg-gray-100 cursor-pointer" />
         <Avatar url="https://bit.ly/3HjEb7v" />
       </div>
