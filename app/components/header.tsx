@@ -1,6 +1,6 @@
 import cn from 'classnames'
 import { Link } from 'remix'
-
+import { ViewGridIcon } from '@heroicons/react/solid'
 import Avatar from './avatar'
 
 type Props = {
@@ -30,6 +30,7 @@ const Header = ({ className }: Props) => {
         <Link to="/" className="hover:underline">
           Images
         </Link>
+        <ViewGridIcon className="w-10 h-10 p-2 rounded-full hover:bg-gray-100 cursor-pointer" />
         <Avatar url="https://bit.ly/3HjEb7v" />
       </div>
     </header>
