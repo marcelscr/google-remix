@@ -1,12 +1,14 @@
 import { redirect, useLoaderData } from 'remix'
 import type { ActionFunction, LoaderFunction, MetaFunction } from 'remix'
+import type { Results } from '~/types'
 
 import { searchResponse as mockedResponse } from '~/mocks'
 import Header from '~/components/searchHeader'
+import SearchResults from '~/components/searchResults'
 
 type SearchData = {
   query: string
-  results: object
+  results: Results
 }
 
 export const meta: MetaFunction = ({ location }) => {
@@ -32,11 +34,12 @@ export const loader: LoaderFunction = async ({ request }) => {
   const startIndex = url.searchParams.get('start') || 0
   const useDummyData = true
 
-  const results = useDummyData
-    ? mockedResponse
-    : await fetch(
-        `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${contextKey}&q=${query}&start=${startIndex}`
-      ).then(response => response.json())
+  if (useDummyData) {
+    return mockedResponse
+  }
+  const results = await fetch(
+    `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${contextKey}&q=${query}&start=${startIndex}`
+  ).then(response => response.json())
 
   return { query, results }
 }
@@ -53,11 +56,10 @@ export const action: ActionFunction = async ({ request }) => {
 export default function Search() {
   const data = useLoaderData<SearchData>()
 
-  console.log(data)
-
   return (
-    <div>
+    <div className="p-5 overflow-hidden">
       <Header defaultSearchValue={data.query} />
+      <SearchResults results={data.results} />
     </div>
   )
 }
