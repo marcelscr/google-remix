@@ -5,20 +5,20 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
-  LinksFunction,
-} from "remix";
-import type { MetaFunction } from "remix";
+  LinksFunction
+} from 'remix'
+import type { MetaFunction } from 'remix'
 
-import tailwindUrl from "./styles/tailwind.css";
+import tailwindUrl from './styles/tailwind.css'
 
 // https://remix.run/api/app#links
-export let links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: tailwindUrl }];
-};
+export const links: LinksFunction = () => {
+  return [{ rel: 'stylesheet', href: tailwindUrl }]
+}
 
 export const meta: MetaFunction = () => {
-  return { title: "New Remix App" };
-};
+  return { title: 'New Remix App' }
+}
 
 export default function App() {
   return (
@@ -33,8 +33,8 @@ export default function App() {
         <Outlet />
         <ScrollRestoration />
         <Scripts />
-        {process.env.NODE_ENV === "development" && <LiveReload />}
+        {process.env.NODE_ENV === 'development' && <LiveReload />}
       </body>
     </html>
-  );
+  )
 }

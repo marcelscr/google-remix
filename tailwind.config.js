@@ -1,11 +1,11 @@
 module.exports = {
-  mode: "jit",
-  content: ["./app/**/*.{ts,tsx}"],
+  mode: 'jit',
+  content: ['./app/**/*.{ts,tsx}'],
   theme: {
-    extend: {},
+    extend: {}
   },
   variants: {
-    extend: {},
+    extend: {}
   },
-  plugins: [],
-};
+  plugins: []
+}
