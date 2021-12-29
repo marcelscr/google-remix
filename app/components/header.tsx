@@ -1,6 +1,7 @@
 import cn from 'classnames'
 import { Link } from 'remix'
 import { ViewGridIcon } from '@heroicons/react/solid'
+
 import Avatar from './avatar'
 
 type Props = {
@@ -11,18 +12,9 @@ const Header = ({ className }: Props) => {
   return (
     <header
       className={cn(
-        'flex w-full p-5 justify-between text-sm text-gray-700',
+        'flex justify-end w-full p-5 text-sm text-gray-700',
         className
       )}>
-      <div className="flex space-x-4 items-center">
-        <Link to="/" className="hover:underline">
-          About
-        </Link>
-        <Link to="/" className="hover:underline">
-          Store
-        </Link>
-      </div>
-
       <div className="flex space-x-4 items-center">
         <Link to="/" className="hover:underline">
           Gmail
