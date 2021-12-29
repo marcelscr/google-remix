@@ -1,4 +1,5 @@
 import Header from '~/components/header'
+import Footer from '~/components/footer'
 
 type Props = {
   children: React.ReactNode
@@ -14,11 +15,7 @@ const Layout = ({ children }: Props) => {
       <main className="flex-grow flex-shrink-0">{children}</main>
 
       {/* Footer */}
-      <footer className="flex flex-shrink-0 items-center justify-center p-8">
-        <div>
-          <p className="text-gray-700">&copy; 2021 Marcel Rebouças</p>
-        </div>
-      </footer>
+      <Footer className="flex-shrink-0" />
     </div>
   )
 }
