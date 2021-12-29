@@ -1,4 +1,5 @@
 import type { Results } from '~/types'
+import PaginationButtons from '~/components/paginationButtons'
 
 type Props = {
   results: Results
@@ -15,7 +16,7 @@ const SearchResults = ({ results }: Props) => {
       {results.items?.map(result => (
         <div key={result.link} className="max-w-xl mb-8">
           <div className="group">
-            <a href={result.link} className="text-sml">
+            <a href={result.link} className="text-sml line-clamp-1">
               {result.formattedUrl}
             </a>
             <a href={result.link}>
@@ -28,6 +29,8 @@ const SearchResults = ({ results }: Props) => {
           <p className="line-clamp-2">{result.snippet}</p>
         </div>
       ))}
+
+      <PaginationButtons />
     </div>
   )
 }

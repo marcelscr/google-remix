@@ -32,7 +32,7 @@ export const loader: LoaderFunction = async ({ request }) => {
   const url = new URL(request.url)
   const query = url.searchParams.get('query')
   const startIndex = url.searchParams.get('start') || 0
-  const useDummyData = true
+  const useDummyData = false
 
   if (useDummyData) {
     return mockedResponse
