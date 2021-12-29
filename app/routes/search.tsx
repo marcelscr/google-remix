@@ -9,7 +9,7 @@ export const meta: MetaFunction = () => {
   }
 }
 
-export const loader: LoaderFunction = async ({ request }) => {
+export const loader: LoaderFunction = async () => {
   return {}
 }
 
@@ -23,9 +23,6 @@ export const action: ActionFunction = async ({ request }) => {
 }
 
 export default function Search() {
-  const buttonCn =
-    'bg-gray-100 p-3 rounded-md ring-gray-200 text-sm text-gray-800 hover:ring-1 focus:outline-none active:ring-gray-300 hover:shadow-md'
-
   return (
     <div>
       <Header />

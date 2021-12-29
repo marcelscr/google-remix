@@ -1,4 +1,3 @@
-import classNames from 'classnames'
 import cn from 'classnames'
 
 type Props = {

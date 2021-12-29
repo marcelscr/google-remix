@@ -1,7 +1,10 @@
-import { XIcon, MicrophoneIcon, SearchIcon } from '@heroicons/react/solid'
-
 const HeaderOptions = () => {
-  return <div></div>
+  return (
+    <div>
+      {/* Left */}
+      {/* Right */}
+    </div>
+  )
 }
 
 export default HeaderOptions
