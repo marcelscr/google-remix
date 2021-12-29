@@ -1,6 +1,8 @@
 import cn from 'classnames'
 import { Link } from 'remix'
 
+import Avatar from './avatar'
+
 type Props = {
   className?: string
 }
@@ -28,6 +30,7 @@ const Header = ({ className }: Props) => {
         <Link to="/" className="hover:underline">
           Images
         </Link>
+        <Avatar url="https://bit.ly/3HjEb7v" />
       </div>
     </header>
   )
