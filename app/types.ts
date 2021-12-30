@@ -1,9 +1,10 @@
 export type Results = {
-  searchInformation?: {
-    formattedTotalResults: number
-    formattedSearchTime: number
+  searchInformation: {
+    formattedTotalResults: string
+    formattedSearchTime: string
+    totalResults: string
   }
-  items?: [
+  items: [
     {
       link: string
       title: string

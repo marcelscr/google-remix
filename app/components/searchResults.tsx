@@ -9,8 +9,8 @@ const SearchResults = ({ results }: Props) => {
   return (
     <div className="mx-auto w-full px-5 pl-[5%] md:pl-[14%] lg:pl-52">
       <p className="text-gray-600 text-md mb-5 mt-3">
-        About {results.searchInformation?.formattedTotalResults} (
-        {results.searchInformation?.formattedSearchTime} seconds)
+        About {results.searchInformation.formattedTotalResults} (
+        {results.searchInformation.formattedSearchTime} seconds)
       </p>
 
       {results.items?.map(result => (
@@ -30,7 +30,9 @@ const SearchResults = ({ results }: Props) => {
         </div>
       ))}
 
-      <PaginationButtons />
+      <PaginationButtons
+        itemCount={Number(results.searchInformation.totalResults)}
+      />
     </div>
   )
 }

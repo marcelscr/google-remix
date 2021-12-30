@@ -1,7 +1,11 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
 import { useLocation, Link } from 'remix'
 
-const PaginationButtons = () => {
+type Props = {
+  itemCount: number
+}
+
+const PaginationButtons = ({ itemCount }: Props) => {
   const location = useLocation()
   const startIndex =
     Number(new URLSearchParams(location.search).get('start')) || 0
@@ -19,12 +23,14 @@ const PaginationButtons = () => {
         </Link>
       )}
 
-      <Link to={`/search?query=${query}&start=${startIndex + 10}`}>
-        <div className="flex flex-grow flex-col items-center cursor-pointer hover:underline">
-          <ChevronRightIcon className="h-5" />
-          <p>Next</p>
-        </div>
-      </Link>
+      {startIndex + 10 < itemCount && (
+        <Link to={`/search?query=${query}&start=${startIndex + 10}`}>
+          <div className="flex flex-grow flex-col items-center cursor-pointer hover:underline">
+            <ChevronRightIcon className="h-5" />
+            <p>Next</p>
+          </div>
+        </Link>
+      )}
     </div>
   )
 }
